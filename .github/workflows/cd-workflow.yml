@@ -56,3 +56,4 @@ jobs:
           heroku_app_name: "tic-tac-toe-docker-test"
           heroku_email: "tommi.kallonen@lab.fi"
           remote_branch: master 
+          usedocker: true
