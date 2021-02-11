@@ -4,8 +4,7 @@ name: Docker CD
 
 on:
   push:
-    paths:
-      - "**Dockerfile**"
+    
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -57,11 +56,10 @@ jobs:
       with:
         name: webpack artifacts
         path: public
-    - name: Build container image
-      uses: docker/build-push-action@v1
+    - uses: akhileshns/heroku-deploy@v3.10.9
       with:
-        username: ${{github.actor}}
-        password: ${{secrets.GITHUB_TOKEN}}
-        registry: docker.pkg.github.com
-        repository: tommikallonen/github-actions-for-packages/tic-tac-toe
-        tag_with_sha: true  
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "tic-tac-toe-docker-test"
+          heroku_email: "tommi.kallonen@lab.fi"
+          remote_branch: master 
+          usedocker: true
