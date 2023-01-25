@@ -5,6 +5,9 @@ name: Docker CD
 on:
   push:
 
+env:
+  IMAGE_NAME: tic-tac-toe
+  
 jobs:
   build:
     runs-on: ubuntu-latest
