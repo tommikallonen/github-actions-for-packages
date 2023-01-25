@@ -45,6 +45,9 @@ jobs:
           CI: true
   Build-and-Push-Docker-Image: 
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     needs: test
     name: Docker Build, Tag, Push
 
